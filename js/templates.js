@@ -15,5 +15,5 @@ this["JST"]["employee"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],
 },"useData":true});
 this["JST"] = this["JST"] || {};
 this["JST"]["table_header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<table>\n  <thead>\n  <tr>\n\n  </tr>\n </thead>\n  <tbody>";
+  return "<table>\n  <thead>\n  <tr>\n\n  </tr>\n  </thead>\n  <tbody>\n  </tbody>\n</table>";
   },"useData":true});

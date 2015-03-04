@@ -5,12 +5,14 @@ body {
   padding: 0;
 }
 table {
+  width: 50%;
   margin: 0px;
   padding: 0px;
-  width: 100%;
+  width: 50%;
   box-shadow: 4px 4px 10px #888888;
   border: 1px solid #cbcaca;
   border-spacing: 0;
+  margin:50px;
 }
 tr:nth-child(odd) {
   background-color: #ebebeb;
