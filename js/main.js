@@ -13,10 +13,6 @@ var EmployeeView = (function() {
 		_.extend(this, Backbone.Events);
 		this.model = model;
 		
-		
-		this.listenTo(model, "change", function() {
-			this.render();
-		});
 	}
 
 	EmployeeView.prototype = {
