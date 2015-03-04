@@ -1,8 +1,14 @@
 var Employee = Backbone.Model.extend ({
-	url: "js/employees.json"
 
 });
 
+var EmployeesCollection = Backbone.Collection.extend ({
+
+	url: "js/employees.json",
+
+	model: Employee
+
+});
 
 var EmployeeView = (function() {
 
@@ -25,35 +31,38 @@ var EmployeeView = (function() {
 
 })();
 
+
+
+
 $(function() {
 
-	$.ajax("js/employees.json").done(function(data) {
-
+	var employees = new EmployeesCollection();
 
 		var headerTemplate = JST["table_header"];
 
 		$("body").append(headerTemplate);
 
-		var keysArray = _.keys(data[0]);
+		employees.fetch().done(function() {
 
-		_.each(keysArray, function(key) {
+		  employees.each(function(model) {
 
-			$("thead tr").append($("<th />").text(key));
+		  	var employeeView = new EmployeeView(model);
+		  	$("tbody").append(employeeView.render());
 
-		});
+		  });
+
+
+			var headings = employees.first().keys();
+
+			_.each(headings, function(key) {
+
+				$("thead tr").append($("<th />").text(key));
+
+			});
 		//
-	
-		_.each(data, function(datum) {
-
-			var employeeModel = new Employee(datum);
-
-			var employeeView = new EmployeeView(employeeModel);
-
-			$("tbody").append(employeeView.render());
-	
-		});
+		  //console.log(headings);
+		  //window.employees = employees;
 
 	});
-
 
 });
